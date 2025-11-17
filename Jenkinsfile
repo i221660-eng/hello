@@ -21,3 +21,16 @@ pipeline {
         }
     }
 }
+
+// ... end of stages block
+    }
+}
+post {
+    always { // This action will happen regardless of the result of build
+        echo 'Post build condition running'
+    }
+    failure { // This action will happen only if the build has failed
+        echo 'Post Action if Build failed'
+    }
+}
+// ... end of pipeline block
