@@ -1,5 +1,19 @@
 pipeline {
     agent any
+    environment { // variables defined here can be used by any stage
+        NEW_VERSION = '1.3.0'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Project'
+                // To output the value of variable in string use " "
+                echo "Building version ${env.NEW_VERSION}"
+            }
+        }
+// ... other stages ...
+pipeline {
+    agent any
     stages {
         stage('Build') {
             steps {
